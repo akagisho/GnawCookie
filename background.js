@@ -4,7 +4,7 @@ chrome.contextMenus.create({
         var url = info.pageUrl;
         var domain = getDomain(url);
         domain.replace('.', '\\.');
-        domain = '^\\.' + domain + '$';
+        domain = '\\.?' + domain + '$';
 
         chrome.tabs.create({
             url: 'get.html#!/host=' + domain
