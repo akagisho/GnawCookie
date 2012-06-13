@@ -1,0 +1,4 @@
+Gnaw Cookie
+===========
+
+This is a Google Chrome extension that gets or sets cookies.
