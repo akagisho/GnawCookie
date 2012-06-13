@@ -1,0 +1,11 @@
+{
+    "name": "Cookie",
+    "description": "Cookie edit",
+    "version": "0.1",
+    "app": {
+        "launch": {
+            "local_path": "get.html"
+        }
+    },
+    "permissions": [ "cookies", "tabs", "http://*/*", "https://*/*" ]
+}
