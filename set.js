@@ -18,6 +18,6 @@ $(document).ready(function () {
             delete cookies[i].session;
             chrome.cookies.set(cookies[i]);
         }
-        $("#result").html("Maby finished setting cookies...");
+        $("#result").html("Maybe finished setting cookies...");
     });
 });
