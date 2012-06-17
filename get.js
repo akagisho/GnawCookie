@@ -22,7 +22,9 @@ function getCookie(host) {
         }
         result = result.length === 0 ? 'No cookie!'
             : JSON.stringify(result);
-        $("#cookie").val(result);
+
+        result = indent(result);
+        $('#cookie').val(result);
     });
 }
 
@@ -36,4 +38,23 @@ function getUrlVars() {
     }
     return vars;
 }
+
+function indent(data) {
+    data = data.replaceAll('{"', '{' + "\n\t\t" + '"');
+    data = data.replaceAll('},{', "\n\t" + '},' + "\n\t" + '{');
+    data = data.replaceAll(',"', ',' + "\n\t\t" + '"');
+    data = data.replace(/:/g, ': ');
+    data = data.replace(/^\[{/, '[' + "\n\t" + '{');
+    data = data.replace(/}\]$/, "\n\t" + '}' + "\n" + ']');
+
+    return data;
+}
+
+String.prototype.replaceAll = function(str1,str2){
+    var temp = this;
+    while (temp.indexOf(str1) != -1) {
+        temp=temp.replace(str1,str2);
+    }
+    return temp;
+};
 
