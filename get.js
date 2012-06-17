@@ -28,6 +28,10 @@ function getCookie(host) {
     });
 }
 
+function editPage() {
+    location.href = 'edit.html#!/host=' + $('#host').val();
+}
+
 function getUrlVars() {
     var vars = [], hash;
     var hashes = window.location.href.slice(window.location.href.indexOf('#!/') + 3).split('&');

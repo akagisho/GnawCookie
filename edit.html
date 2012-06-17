@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <title>Edit Cookie</title>
+    <script src="jquery-1.6.1.min.js"></script>
+    <script src="edit.js"></script>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+<h2>Remove Cookie</h2>
+Input a regular expression.<br>
+<input type="text" size="60" id="host" value="">
+<input type="button" value="Get Cookie" id="get">
+ <a href="JavaScript:getPage();">Get</a>
+ <a href="set.html">Set</a>
+<div id="error"></div>
+<div id="container">
+
+
+    <div id="result"></div>
+    <table id="cookie" border="1">
+        <tr>
+            <th></th>
+            <th>domain</th>
+            <th>expr</th>
+            <th>hostOnly</th>
+            <th>httpOnly</th>
+            <th>name</th>
+            <th>path</th>
+            <th>secure</th>
+            <th>session</th>
+            <th>storeId</th>
+            <th>value</th>
+        </tr>
+    </table>
+
+</div>
+</body>
+</html>
