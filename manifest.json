@@ -1,7 +1,7 @@
 {
     "name": "Gnaw Cookie",
     "description": "Edit Cookie",
-    "version": "0.2.1",
+    "version": "0.3.0",
     "permissions": ["cookies", "tabs", "contextMenus", "http://*/*", "https://*/*"], 
     "app": {
         "launch": {
