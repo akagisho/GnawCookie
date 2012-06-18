@@ -40,18 +40,20 @@ function getCookie(host) {
                 $('#cookie').append(
                     '<tr id="cookie' + i + '">' 
                     + '<td><input type="button" id="remove' + i + '" value="x"></td>'
-                    + '<td class="cookie.domain">' + cookie.domain + '</td>'
-                    + '<td class="cookie.expirationDate">' + cookie.expirationDate + '</td>'
-                    + '<td class="cookie.hostOnly">' + cookie.hostOnly + '</td>'
-                    + '<td class="cookie.httpOnly">' + cookie.httpOnly + '</td>'
-                    + '<td class="cookie.name">' + cookie.name + '</td>'
-                    + '<td class="cookie.path">' + cookie.path + '</td>'
-                    + '<td class="cookie.secure">' + cookie.secure + '</td>'
-                    + '<td class="cookie.session">' + cookie.session + '</td>'
-                    + '<td class="cookie.storeId">' + cookie.storeId + '</td>'
-                    + '<td class="cookie.value">' + cookie.value + '</td>'
+                    + '<td class="domain">' + cookie.domain + '</td>'
+                    + '<td class="expirationDate">' + cookie.expirationDate + '</td>'
+                    + '<td class="hostOnly">' + cookie.hostOnly + '</td>'
+                    + '<td class="httpOnly">' + cookie.httpOnly + '</td>'
+                    + '<td class="name">' + cookie.name + '</td>'
+                    + '<td class="path">' + cookie.path + '</td>'
+                    + '<td class="secure">' + cookie.secure + '</td>'
+                    + '<td class="session">' + cookie.session + '</td>'
+                    + '<td class="storeId">' + cookie.storeId + '</td>'
+                    + '<td class="value" style="white-space: nowrap;"><input size="40" type="text" value="' + cookie.value + '">'
+                    + '<input type="button" id="edit' + i + '" value="●"></td>'
                     + '</tr>'
                 );
+
                 var remove = function (i) {
                     var cookie = cookies[i];
                     return function () {
@@ -65,6 +67,25 @@ function getCookie(host) {
                     };
                 };
                 $('#remove' + i).click(remove(i));
+
+                var edit = function (i) {
+                    return function () {
+                        var cookie = cookies[i];
+                        var cookie_number = '#cookie' + i;
+                        chrome.cookies.set({
+                            url: ((cookie.secure) ? 'https://' : 'http://') + cookie.domain + cookie.path,
+                            name: cookie.name,
+                            value: $(cookie_number + ' .value input').val(),
+							domain: cookie.domain,
+							path: cookie.path,
+							secure: cookie.secure,
+							httpOnly: cookie.httpOnly,
+							expirationDate: cookie.expirationDate,
+                            storeId: cookie.storeId
+                        });
+                    };
+                };
+                $('#edit' + i).click(edit(i));
             }
         }
     });
