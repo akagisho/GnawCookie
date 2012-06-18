@@ -5,7 +5,7 @@
         "48": "icon_48.png", 
         "128": "icon_128.png"
     },
-	"version": "0.3.1",
+	"version": "0.3.2",
     "permissions": ["cookies", "tabs", "contextMenus", "http://*/*", "https://*/*"], 
     "app": {
         "launch": {
