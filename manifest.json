@@ -1,7 +1,11 @@
 {
     "name": "Gnaw Cookie",
     "description": "Edit Cookie",
-    "version": "0.3.0",
+    "icons": {
+        "48": "icon_48.png", 
+        "128": "icon_128.png"
+    },
+	"version": "0.3.1",
     "permissions": ["cookies", "tabs", "contextMenus", "http://*/*", "https://*/*"], 
     "app": {
         "launch": {
@@ -12,4 +16,3 @@
         "scripts": ["background.js"]
     }
 }
-
