@@ -2,17 +2,24 @@
     "name": "Gnaw Cookie",
     "description": "Edit Cookie",
     "icons": {
-        "48": "icon_48.png", 
-        "128": "icon_128.png"
+        "48": "icon/icon_48.png",
+        "128": "icon/icon_128.png"
     },
-	"version": "0.3.2",
-    "permissions": ["cookies", "tabs", "contextMenus", "http://*/*", "https://*/*"], 
+    "version": "0.3.2",
+    "permissions": [
+        "cookies",
+        "tabs",
+        "contextMenus",
+        "http://*/*",
+        "https://*/*"
+    ],
     "app": {
         "launch": {
             "local_path": "get.html"
         }
     },
     "background": {
-        "scripts": ["background.js"]
-    }
+        "scripts": ["js/background.js"]
+    },
+    "manifest_version": 2
 }
