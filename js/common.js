@@ -10,11 +10,11 @@ function getUrlVars() {
 }
 
 function getPage() {
-    location.href = 'get.html#!/host=' + $('#host').val();
+    location.href = 'get.html#!/domain=' + $('#domain').val();
 }
 
 function editPage() {
-    location.href = 'edit.html#!/host=' + $('#host').val();
+    location.href = 'edit.html#!/domain=' + $('#domain').val();
 }
 
 function indent(data) {

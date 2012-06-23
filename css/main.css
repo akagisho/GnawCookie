@@ -8,3 +8,22 @@ body {
     margin: 10px 0 0 0;
     font: 8pt 'Menlo';
 }
+
+.hostOnly,
+.httpOnly,
+.secure,
+.session
+{
+    text-align: center;
+}
+
+table,
+th,
+td
+{
+    border: 1px solid silver;
+}
+table
+{
+    border-collapse: collapse;
+}

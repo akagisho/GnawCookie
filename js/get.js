@@ -1,20 +1,20 @@
 $(document).ready(function () {
     var vars = getUrlVars();
-    if (typeof vars['host'] !== 'undefined') {
-        $('#host').val(vars['host']);
-        getCookie(vars['host']);
+    if (typeof vars['domain'] !== 'undefined') {
+        $('#domain').val(vars['domain']);
+        getCookie(vars['domain']);
     }
 
     $('#get').click(function () {
-        getCookie($('#host').val());
+        getCookie($('#domain').val());
     });
 });
 
-function getCookie(host) {
+function getCookie(domain) {
     chrome.cookies.getAll({}, function (cookies) {
         var length, i, regexp, result = [];
         length = cookies.length;
-        regexp = new RegExp(host);
+        regexp = new RegExp(domain);
         for (i = 0; i < length; i += 1) {
             if (cookies[i].domain.match(regexp)) {
                 result.push(cookies[i]);
