@@ -53,13 +53,7 @@ function getCookie(domain) {
             $("#container").text("No cookie!");
             return;
         }
-        cookies.sort(function (cookie1, cookie2) {
-            var domain1 = cookie1.domain;
-            var domain2 = cookie2.domain;
-            return domain1 === domain2 ?    0
-                :  domain1 >   domain2 ?    1
-                :                          -1;
-        });
+        cookies.sort(cookieSort);
 
         for (i = 0; i < length; i += 1) {
             table.append(tr(i));

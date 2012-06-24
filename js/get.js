@@ -27,7 +27,7 @@ function getCookie(domain) {
             }
         }
         result = result.length === 0 ? 'No cookie!'
-            : JSON.stringify(result);
+            : JSON.stringify(result.sort(cookieSort));
 
         result = indent(result);
         $('#cookie').val(result);
