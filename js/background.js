@@ -7,7 +7,7 @@ chrome.contextMenus.create({
         domain = '\\.?' + domain + '$';
 
         chrome.tabs.create({
-            url: 'get.html#!/host=' + domain
+            url: 'get.html#!/domain=' + domain
         });
     }
 });
