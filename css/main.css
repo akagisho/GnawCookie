@@ -1,10 +1,12 @@
-body {
+body
+{
     width: 800px;
     margin: 10px auto;
     word-wrap: break-word;
 }
 
-#container {
+#container
+{
     margin: 10px 0 0 0;
     font: 8pt 'Menlo';
 }
@@ -23,7 +25,13 @@ td
 {
     border: 1px solid silver;
 }
+
 table
 {
     border-collapse: collapse;
+}
+
+tr.odd
+{
+    background-color: azure;
 }

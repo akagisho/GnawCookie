@@ -4,10 +4,10 @@ $(document).ready(function () {
         $('#domain').val(vars['domain']);
     }
     $("#edit-page").click(function () {
-        editPage();
+        linkTo('edit.html');
     });
     $("#get-page").click(function () {
-        getPage();
+        linkTo('get.html');
     });
 
     $('#set').click(function () {

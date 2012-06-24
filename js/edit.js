@@ -6,20 +6,22 @@ $(document).ready(function () {
     }
 
     $("#get-page").click(function () {
-        getPage();
+        linkTo('get.html');
     });
     $("#set-page").click(function () {
-        setPage();
+        linkTo('set.html');
     });
     $('#get').click(function () {
+        $("#cookie").remove();
         getCookie($('#domain').val());
     });
 });
 
 function getCookie(domain) {
-    $('<table id="cookie" border="1" cellspacing="0" cellpadding="3"></table>')
-        .appendTo("#container");
-    $('#cookie').html(
+    var table = $(
+        '<table id="cookie" cellspacing="0" cellpadding="3"></table>'
+    );
+    table.append(
         '<tr>'
         + '<th></th>'
         + '<th>domain</th>'
@@ -35,25 +37,40 @@ function getCookie(domain) {
         + '</tr>'
     );
 
-    chrome.cookies.getAll({}, function (cookies) {
-        var length, i, regexp;
-        length = cookies.length;
+    chrome.cookies.getAll({}, function (all_cookies) {
+        var length, i, regexp, cookies = [];
         regexp = new RegExp(domain);
 
+        length = all_cookies.length;
         for (i = 0; i < length; i += 1) {
-            if (cookies[i].domain.match(regexp)) {
-                $('#cookie').append(tr(i));
-                $('#remove' + i).click(remove(i));
-                $('#edit' + i).click(edit(i));
+            if (all_cookies[i].domain.match(regexp)) {
+                cookies.push( all_cookies[i] );
             }
         }
-        $("tr:odd").css("background-color", "azure");
+
+        length = cookies.length;
+        if (length === 0) {
+            $("#container").text("No cookie!");
+            return;
+        }
+        cookies.sort(function (cookie1, cookie2) {
+            var domain1 = cookie1.domain;
+            var domain2 = cookie2.domain;
+            return domain1 === domain2 ?    0
+                :  domain1 >   domain2 ?    1
+                :                          -1;
+        });
+
+        for (i = 0; i < length; i += 1) {
+            table.append(tr(i));
+            table.find('#remove' + i).click(remove(i));
+            table.find('#edit' + i).click(edit(i));
+        }
+        table.find("tr:odd").addClass("odd");
+        table.appendTo("#container");
 
         function tr(i) {
             var cookie = cookies[i];
-            var check = function (bool) {
-                return bool ? '✔' : '';
-            };
             return '<tr id="cookie' + i + '">'
                 + '<td><input type="button" id="remove' + i + '" value="x"></td>'
                 + '<td class="domain">' + cookie.domain + '</td>'
@@ -68,6 +85,9 @@ function getCookie(domain) {
                 + '<td class="value" style="white-space: nowrap;"><input size="40" type="text" value="' + cookie.value + '">'
                 + '<input type="button" id="edit' + i + '" value="●"></td>'
                 + '</tr>';
+        }
+        function check(bool) {
+            return bool ? '✔' : '';
         }
 
         function remove(i) {

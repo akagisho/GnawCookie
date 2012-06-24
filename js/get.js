@@ -5,10 +5,10 @@ $(document).ready(function () {
         getCookie(vars['domain']);
     }
     $("#edit-page").click(function () {
-        editPage();
+        linkTo('edit.html');
     });
     $("#set-page").click(function () {
-        setPage();
+        linkTo('set.html');
     });
 
     $('#get').click(function () {

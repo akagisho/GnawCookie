@@ -9,21 +9,9 @@ function getUrlVars() {
     return vars;
 }
 
-function getPage() {
+function linkTo(page) {
     var domain = $('#domain').val();
-    location.href = 'get.html'
-        + (domain === '' ? '' : '#!/domain=' + domain);
-}
-
-function editPage() {
-    var domain = $('#domain').val();
-    location.href = 'edit.html'
-        + (domain === '' ? '' : '#!/domain=' + domain);
-}
-
-function setPage() {
-    var domain = $('#domain').val();
-    location.href = 'set.html'
+    location.href = page
         + (domain === '' ? '' : '#!/domain=' + domain);
 }
 
