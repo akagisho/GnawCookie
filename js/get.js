@@ -4,6 +4,12 @@ $(document).ready(function () {
         $('#domain').val(vars['domain']);
         getCookie(vars['domain']);
     }
+    $("#edit-page").click(function () {
+        editPage();
+    });
+    $("#set-page").click(function () {
+        setPage();
+    });
 
     $('#get').click(function () {
         getCookie($('#domain').val());

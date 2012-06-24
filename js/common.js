@@ -10,11 +10,21 @@ function getUrlVars() {
 }
 
 function getPage() {
-    location.href = 'get.html#!/domain=' + $('#domain').val();
+    var domain = $('#domain').val();
+    location.href = 'get.html'
+        + (domain === '' ? '' : '#!/domain=' + domain);
 }
 
 function editPage() {
-    location.href = 'edit.html#!/domain=' + $('#domain').val();
+    var domain = $('#domain').val();
+    location.href = 'edit.html'
+        + (domain === '' ? '' : '#!/domain=' + domain);
+}
+
+function setPage() {
+    var domain = $('#domain').val();
+    location.href = 'set.html'
+        + (domain === '' ? '' : '#!/domain=' + domain);
 }
 
 function indent(data) {

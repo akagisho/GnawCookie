@@ -5,6 +5,12 @@ $(document).ready(function () {
         getCookie(vars['domain']);
     }
 
+    $("#get-page").click(function () {
+        getPage();
+    });
+    $("#set-page").click(function () {
+        setPage();
+    });
     $('#get').click(function () {
         getCookie($('#domain').val());
     });
