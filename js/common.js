@@ -30,10 +30,10 @@ function cookieSort(cookie1, cookie2) {
             return -1;
         }
     }
-    if (length1 < length2) {
+    if (length1 > length2) {
         return 1;
     }
-    else if (length1 > length2) {
+    else if (length1 < length2) {
         return -1;
     }
     else {
