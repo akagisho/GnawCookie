@@ -6,21 +6,51 @@
     <script src="js/jquery-1.7.2.min.js"></script>
     <script src="js/common.js"></script>
     <script src="js/set.js"></script>
-    <link rel="stylesheet" href="css/main.css">
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
+    <style type="text/css">
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+    </style>
 </head>
 <body>
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="#">Gnaw Cookie</a>
+          <div class="nav-collapse">
+            <ul class="nav">
+              <li><a id="get-page" href="#">Get</a></li>
+              <li><a id="edit-page" href="#">Edit</a></li>
+              <li class="active"><a id="set-page" href="#">Set</a></li>
+          </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+    </div>
+    </div>
+
+<div class="container">
 <h2>Set Cookie</h2>
-<input type="button" value="Set Cookie" id="set">
- <a id="get-page" href="#">Get</a>
- <a id="edit-page" href="#">Edit</a>
-<div id="container">
-    <div id="result"></div>
-    <textarea rows="30" id="cookie" cols="110" wrap="off"></textarea>
-
-
-
-
+<p>Input JSON formated cookies below to set them.
+Remark that if there already exist cookies
+whose domain, path, and name are the same,
+they will be overwritten.
+</p>
+</p>
+<div id="result">
 </div>
-    <input type="hidden" id="domain">
+<textarea rows="20" id="cookie" class="span12" wrap="off"></textarea>
+
+<button class="btn" id="set">Set Cookie</button>
+</div>
+
+<input type="hidden" id="domain">
 </body>
 </html>

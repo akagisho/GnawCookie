@@ -6,19 +6,47 @@
     <script src="js/jquery-1.7.2.min.js"></script>
     <script src="js/common.js"></script>
     <script src="js/edit.js"></script>
+    <link href="css/bootstrap.css" rel="stylesheet">
     <link rel="stylesheet" href="css/main.css">
+    <style type="text/css">
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+    </style>
 </head>
 <body>
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="#">Gnaw Cookie</a>
+          <div class="nav-collapse">
+            <ul class="nav">
+              <li><a id="get-page" href="#">Get</a></li>
+              <li class="active"><a id="edit-page" href="#">Edit</a></li>
+              <li><a id="set-page" href="#">Set</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+<div class="container">
 <h2>Edit Cookie</h2>
-Input a regular expression.<br>
-<input type="text" size="60" id="domain" value="">
-<input type="button" value="Get Cookie" id="get">
-<a id="get-page" href="#">Get</a>
- <a id="set-page" href="#">Set</a>
+<p>Input a regular expression that matches cookies' domain.</p>
+<div class="input-append">
+<input type="text" size="60" id="domain" placeholder="^\.google\.com$"><button class="btn" id="get">Get Cookie</button>
+</div>
 <div id="error"></div>
-<div id="container">
+<div id="table">
 
 
+</div>
 </div>
 </body>
 </html>

@@ -12,7 +12,7 @@ $(document).ready(function () {
         linkTo('set.html');
     });
     $('#get').click(function () {
-        $("#container").text('');
+        $("#table").text('');
         $("#cookie").remove();
         getCookie($('#domain').val());
     });
@@ -25,9 +25,10 @@ $(document).ready(function () {
 function getCookie(domain) {
     var table = $(
         //'<table id="cookie" cellspacing="0" cellpadding="3"></table>'
-        '<table id="cookie"></table>'
+        '<table id="cookie" class="table table-bordered"></table>'
     ).append(
-        '<tr>'
+        '<thead>'
+        + '<tr>'
         + '<th class="delete"></th>'
         + '<th class="domain">domain</th>'
         + '<th class="path">path</th>'
@@ -40,6 +41,7 @@ function getCookie(domain) {
         + '<th class="storeId">store<br>Id</th>'
         + '<th class="value">value</th>'
         + '</tr>'
+        + '</thead>'
     );
 
     chrome.cookies.getAll({}, function (all_cookies) {
@@ -55,7 +57,7 @@ function getCookie(domain) {
 
         length = cookies.length;
         if (length === 0) {
-            $("#container").text("No cookie!");
+            $("#table").text("No cookie!");
             return;
         }
         cookies.sort(cookieSort);
@@ -66,12 +68,12 @@ function getCookie(domain) {
             table.find('#edit' + i).click(edit(i));
         }
         table.find("tr:odd").addClass("odd");
-        table.appendTo("#container");
+        table.appendTo("#table");
 
         function tr(i) {
             var cookie = cookies[i];
             return '<tr id="cookie' + i + '">'
-                + '<td class="delete"><input type="button" id="remove' + i + '" value="x"></td>'
+                + '<td class="delete"><button class="btn" id="remove' + i + '">x</button></td>'
                 + '<td class="domain">' + cookie.domain + '</td>'
                 + '<td class="path">' + cookie.path + '</td>'
                 + '<td class="name">' + cookie.name + '</td>'
@@ -81,8 +83,11 @@ function getCookie(domain) {
                 + '<td class="secure">' + check(cookie.secure) + '</td>'
                 + '<td class="session">' + check(cookie.session) + '</td>'
                 + '<td class="storeId">' + cookie.storeId + '</td>'
-                + '<td class="value" style="white-space: nowrap;"><input size="40" type="text" value="' + cookie.value + '">'
-                + '<input type="button" id="edit' + i + '" value="&#10000;"></td>'
+                + '<td class="value" style="white-space: nowrap;">'
+                + '<div class="input-append">'
+                + '<input size="40" type="text" value="' + cookie.value + '">'
+                + '<button class="btn" id="edit' + i + '">&#10000;</button></td>'
+                + '</div>'
                 + '</tr>';
         }
         function check(bool) {

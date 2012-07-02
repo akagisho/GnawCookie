@@ -1,37 +1,9 @@
-body
-{
-    margin: 10px 20px;
-}
-
-#container
-{
-    margin: 10px 0 0 0;
-    font: 8pt 'consolas', 'Menlo';
-}
-
-.hostOnly,
-.httpOnly,
-.secure,
-.session
-{
-    text-align: center;
-}
-
+textarea,
 table,
-th,
-td
+table input
 {
-    border: 1px solid silver;
-}
-
-table
-{
-    border-collapse: collapse;
-}
-td,
-th
-{
-    padding: 4px;
+    font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+    font-size: 12px;
 }
 .hostOnly,
 .httpOnly,
@@ -39,10 +11,9 @@ th
 .session,
 .storeId
 {
-    width: 5.5em;
-    text-align: center;
+    text-align: center !important;
 }
 tr.odd
 {
-    background-color: azure;
+    background-color: #FFF4EC;
 }

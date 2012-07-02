@@ -6,21 +6,51 @@
     <script src="js/jquery-1.7.2.min.js"></script>
     <script src="js/common.js"></script>
     <script src="js/get.js"></script>
-    <link rel="stylesheet" href="css/main.css">
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
+    <style type="text/css">
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+    </style>
 </head>
 <body>
+
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="#">Gnaw Cookie</a>
+          <div class="nav-collapse">
+            <ul class="nav">
+              <li class="active"><a href="#">Get</a></li>
+              <li><a id="edit-page" href="#">Edit</a></li>
+              <li><a id="set-page" href="#">Set</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+
+<div class="container">
 <h2>Get Cookie</h2>
-Input a regular expression.<br>
-<input type="text" size="60" id="domain" value="">
-<input type="button" value="Get Cookie" id="get">
-<a id="edit-page" href="#">Edit</a>
- <a id="set-page"  href="#">Set</a>
+<p>Input a regular expression that matches cookies' domain, then you can
+get JSON formated cookies.</p>
+<div class="input-append">
+<input type="text" size="60" id="domain" placeholder="^\.google\.com$"><button class="btn" id="get">Get Cookie</button>
+</div>
+
 <div id="error"></div>
-<div id="container">
 
 
     <div id="result"></div>
-    <textarea rows="30" id="cookie" cols="110" wrap="off"></textarea>
+    <textarea class="span12" rows="20" id="cookie" wrap="off"></textarea>
 
 
 </div>
