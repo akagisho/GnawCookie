@@ -14,11 +14,6 @@ $(document).ready(function () {
     $('#get').click(function () {
         getCookie($('#domain').val());
     });
-//    $('form').submit(function () {
-//        console.log("submit");
-//        getCookie($('#domain').val());
-//        return true;
-//    });
 });
 
 function getCookie(domain) {
@@ -31,10 +26,11 @@ function getCookie(domain) {
                 result.push(cookies[i]);
             }
         }
+        console.log(result.length);
         result = result.length === 0 ? 'No cookie!'
-            : JSON.stringify(result.sort(cookieSort));
+            : JSON.stringify(result.sort(cookieSort), null, ' ');
 
-        result = indent(result);
+        //result = indent(result);
         $('#cookie').val(result);
     });
 }

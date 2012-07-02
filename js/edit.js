@@ -62,6 +62,12 @@ function getCookie(domain) {
         }
         cookies.sort(cookieSort);
 
+        //TODO If length is too big, PC gonna freeze!
+        //     What to do?
+        if (length > 1000) {
+            length = 1000;
+        }
+
         for (i = 0; i < length; i += 1) {
             table.append(tr(i));
             table.find('#remove' + i).click(remove(i));

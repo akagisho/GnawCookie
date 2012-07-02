@@ -26,6 +26,7 @@ $(document).ready(function () {
             delete cookie.session;
             chrome.cookies.set(cookie);
         }
-        $("#result").html("Maybe finished setting cookies...");
+        $("#result").html("Finished setting cookies.")
+            .show().fadeOut(5 * 1000);
     });
 });
