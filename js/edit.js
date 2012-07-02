@@ -12,28 +12,33 @@ $(document).ready(function () {
         linkTo('set.html');
     });
     $('#get').click(function () {
+        $("#container").text('');
         $("#cookie").remove();
         getCookie($('#domain').val());
     });
+//    $('form').submit(function () {
+//        $("#cookie").remove();
+//        getCookie($('#domain').val());
+//    });
 });
 
 function getCookie(domain) {
     var table = $(
-        '<table id="cookie" cellspacing="0" cellpadding="3"></table>'
-    );
-    table.append(
+        //'<table id="cookie" cellspacing="0" cellpadding="3"></table>'
+        '<table id="cookie"></table>'
+    ).append(
         '<tr>'
-        + '<th></th>'
-        + '<th>domain</th>'
-        + '<th>path</th>'
-        + '<th>name</th>'
-        + '<th>expr</th>'
-        + '<th>hostOnly</th>'
-        + '<th>httpOnly</th>'
-        + '<th>secure</th>'
-        + '<th>session</th>'
-        + '<th>storeId</th>'
-        + '<th>value</th>'
+        + '<th class="delete"></th>'
+        + '<th class="domain">domain</th>'
+        + '<th class="path">path</th>'
+        + '<th class="name">name</th>'
+        + '<th class="expr">expr</th>'
+        + '<th class="hostOnly">host<br>Only</th>'
+        + '<th class="httpOnly">http<br>Only</th>'
+        + '<th class="secure">secure</th>'
+        + '<th class="session">session</th>'
+        + '<th class="storeId">store<br>Id</th>'
+        + '<th class="value">value</th>'
         + '</tr>'
     );
 
@@ -66,7 +71,7 @@ function getCookie(domain) {
         function tr(i) {
             var cookie = cookies[i];
             return '<tr id="cookie' + i + '">'
-                + '<td><input type="button" id="remove' + i + '" value="x"></td>'
+                + '<td class="delete"><input type="button" id="remove' + i + '" value="x"></td>'
                 + '<td class="domain">' + cookie.domain + '</td>'
                 + '<td class="path">' + cookie.path + '</td>'
                 + '<td class="name">' + cookie.name + '</td>'
@@ -77,7 +82,7 @@ function getCookie(domain) {
                 + '<td class="session">' + check(cookie.session) + '</td>'
                 + '<td class="storeId">' + cookie.storeId + '</td>'
                 + '<td class="value" style="white-space: nowrap;"><input size="40" type="text" value="' + cookie.value + '">'
-                + '<input type="button" id="edit' + i + '" value="●"></td>'
+                + '<input type="button" id="edit' + i + '" value="&#10000;"></td>'
                 + '</tr>';
         }
         function check(bool) {
@@ -93,7 +98,11 @@ function getCookie(domain) {
                     name: cookie.name,
                     storeId: cookie.storeId
                 });
-                $("#cookie" + i).fadeOut(300);
+                $("#cookie" + i).fadeOut(300, function () {
+                    $(this).remove();
+                    table.find("tr").removeClass("odd")
+                        .filter(":odd").addClass("odd");
+                });
             };
         };
 

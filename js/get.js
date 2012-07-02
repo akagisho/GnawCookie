@@ -14,6 +14,11 @@ $(document).ready(function () {
     $('#get').click(function () {
         getCookie($('#domain').val());
     });
+//    $('form').submit(function () {
+//        console.log("submit");
+//        getCookie($('#domain').val());
+//        return true;
+//    });
 });
 
 function getCookie(domain) {
