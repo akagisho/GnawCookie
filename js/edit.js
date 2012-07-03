@@ -86,10 +86,18 @@ function getCookie(domain) {
                 + '<td class="storeId">' + cookie.storeId + '</td>'
                 + '<td class="value" style="white-space: nowrap;">'
                 + '<span class="input-append">'
-                + '<input size="40" type="text" value="' + cookie.value + '">'
+                + '<input size="40" type="text" value="'
+                + htmlEscape(cookie.value)
+                + '">'
                 + '<button class="btn" id="edit' + i + '">&#10000;</button></td>'
                 + '</span>'
                 + '</tr>';
+        }
+        function htmlEscape(string) {
+            string = string.replace('&', '&amp;');
+            string = string.replace('"', '&quot;');
+            string = string.replace('<', '&lt;');
+            return string;
         }
         function check(bool) {
             return bool ? '✔' : '';
