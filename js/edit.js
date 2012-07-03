@@ -16,15 +16,10 @@ $(document).ready(function () {
         $("#cookie").remove();
         getCookie($('#domain').val());
     });
-//    $('form').submit(function () {
-//        $("#cookie").remove();
-//        getCookie($('#domain').val());
-//    });
 });
 
 function getCookie(domain) {
     var table = $(
-        //'<table id="cookie" cellspacing="0" cellpadding="3"></table>'
         '<table id="cookie" class="table table-bordered"></table>'
     ).append(
         '<thead>'
@@ -90,10 +85,10 @@ function getCookie(domain) {
                 + '<td class="session">' + check(cookie.session) + '</td>'
                 + '<td class="storeId">' + cookie.storeId + '</td>'
                 + '<td class="value" style="white-space: nowrap;">'
-                + '<div class="input-append">'
+                + '<span class="input-append">'
                 + '<input size="40" type="text" value="' + cookie.value + '">'
                 + '<button class="btn" id="edit' + i + '">&#10000;</button></td>'
-                + '</div>'
+                + '</span>'
                 + '</tr>';
         }
         function check(bool) {

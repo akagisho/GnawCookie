@@ -1,18 +1,33 @@
+input,
 textarea,
-table,
-table input
+td
 {
     font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
     font-size: 12px;
 }
-.hostOnly,
-.httpOnly,
-.secure,
-.session,
-.storeId
+
+.table td,
+.table thead th
 {
-    text-align: center !important;
+    vertical-align: middle;
 }
+
+.table thead th,
+td.delete,
+.table td.hostOnly,
+.table td.httpOnly,
+.table td.session,
+.table td.secure,
+.table td.storeId
+{
+    text-align: center;
+}
+
+.table .input-append
+{
+    margin-bottom: 0;
+}
+
 tr.odd
 {
     background-color: #FFF4EC;
