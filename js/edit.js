@@ -74,7 +74,7 @@ function getCookie(domain) {
         function tr(i) {
             var cookie = cookies[i];
             return '<tr id="cookie' + i + '">'
-                + '<td class="delete"><button class="btn" id="remove' + i + '">x</button></td>'
+                + '<td class="delete"><button class="close" id="remove' + i + '">&times;</button></td>'
                 + '<td class="domain">' + cookie.domain + '</td>'
                 + '<td class="path">' + cookie.path + '</td>'
                 + '<td class="name">' + cookie.name + '</td>'
