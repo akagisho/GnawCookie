@@ -94,9 +94,9 @@ function getCookie(domain) {
                 + '</tr>';
         }
         function htmlEscape(string) {
-            string = string.replace('&', '&amp;');
-            string = string.replace('"', '&quot;');
-            string = string.replace('<', '&lt;');
+            string = string.replace(/&/g, '&amp;');
+            string = string.replace(/"/g, '&quot;');
+            string = string.replace(/</g, '&lt;');
             return string;
         }
         function check(bool) {
