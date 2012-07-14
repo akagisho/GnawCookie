@@ -3,7 +3,7 @@ chrome.contextMenus.create({
     onclick: function(info, tab) {
         var url = info.pageUrl;
         var domain = getDomain(url);
-        domain.replace('.', '\\.');
+        domain = domain.replace(/\./g, '\\.');
         domain = '\\.?' + domain + '$';
 
         chrome.tabs.create({
