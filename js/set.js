@@ -16,7 +16,14 @@ $(document).ready(function () {
             cookie,
             i;
 
-        cookies = JSON.parse($("#cookie").val());
+        $('#error').html('');
+        try {
+            cookies = JSON.parse($("#cookie").val());
+        } catch(e) {
+            $('#error').html('<div class="alert alert-error">' + e + '</div>');
+            return;
+        }
+
         length  = cookies.length;
         for (i = 0; i < length; i += 1) {
             cookie = cookies[i];
