@@ -86,10 +86,10 @@ function getCookie(domain) {
                 + '<td class="storeId">' + cookie.storeId + '</td>'
                 + '<td class="value" style="white-space: nowrap;">'
                 + '<span class="input-append">'
-                + '<input size="40" type="text" value="'
+                + '<input class="input-medium" type="text" value="'
                 + htmlEscape(cookie.value)
                 + '">'
-                + '<button class="btn" id="edit' + i + '">&#10000;</button></td>'
+                + '<button class="btn" id="edit' + i + '">save</button></td>'
                 + '</span>'
                 + '</tr>';
         }
