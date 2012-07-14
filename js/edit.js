@@ -161,8 +161,20 @@ $(document).ready(function () {
                     storeId: cookie.storeId
                 });
 
-                $('#notice').html('<div class="alert alert-success">Succeeded!</div>');
-                $('#notice div').fadeOut(3000);
+                //$('#notice').html('<div class="alert alert-success">Succeeded!</div>');
+                //$('#notice div').fadeOut(3000);
+                $('<div class="alert alert-success">Saved the change.</div>')
+                    .css('position', 'fixed')
+                    .css('right', 0)
+                    .css('left', 0)
+                    .css('text-align', 'center')
+                    .css('top', 0)
+                    .css('margin', 0)
+                    .css('padding', '50px 0 10px 0')
+                    .css('z-index', 100)
+                    .appendTo('body')
+                    .delay(2000)
+                    .fadeOut(1000);
             };
         };
     }
