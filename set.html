@@ -37,21 +37,24 @@
     </div>
 
 <div class="container-fluid">
-<div class="row-fluid">
-<h2>Set Cookie</h2>
-<p>Input JSON formated cookies below to set them.
-Remark that if there already exist cookies
-whose domain, path, and name are the same,
-they will be overwritten.
-</p>
-
-<div id="notice"></div>
-<div id="error"></div>
-<textarea rows="20" id="cookie" class="span12" wrap="off"></textarea>
-
-<button class="btn" id="set">Set Cookie</button>
-<span id="information" class="alert"></span>
-</div>
+    <div class="row-fluid">
+        <h2>Set Cookie</h2>
+        <p>Input JSON formated cookies below to set them.
+        Remark that if there already exist cookies
+        whose domain, path, and name are the same,
+        they will be overwritten.
+        </p>
+    </div>
+    <div class="row-fluid">
+        <textarea rows="20" id="cookie" class="span12" wrap="off"></textarea>
+    </div>
+    <div class="row-fluid">
+        <div class="form-inline span6" id="input-box">
+            <button class="btn" id="set">Set Cookie</button>
+        </div>
+        <div id="information" class="alert span6" style="display: none;">
+        </div>
+    </div>
 </div>
 <input type="hidden" id="domain">
 </body>

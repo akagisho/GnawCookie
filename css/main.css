@@ -1,8 +1,9 @@
-#get-cookie-box
+#input-box
 {
-    margin: 10px 0;
+    padding-top: 6px;
+    padding-bottom: 8px;
+    margin-bottom: 12px;
 }
-
 input[type=text],
 textarea,
 td
@@ -10,7 +11,6 @@ td
     font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
     font-size: 12px;
 }
-
 .table td,
 .table thead th
 {
@@ -42,4 +42,8 @@ input[type=text].input-value
 tr.odd
 {
     background-color: #FFF4EC;
+}
+textarea.span12
+{
+    width: 100% !important;
 }

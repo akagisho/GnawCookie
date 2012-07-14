@@ -24,7 +24,7 @@ $(document).ready(function () {
     });
 
     function clearAndGetCookie(domain) {
-        $("#information").removeClass("alert-info alert-error").html("");
+        $("#information").removeClass("alert-success alert-error").hide();
         $('#cookie').val("");
         getCookie(domain);
     }
@@ -37,7 +37,7 @@ $(document).ready(function () {
                 regexp = new RegExp(domain);
             }
             catch (e) {
-                $("#information").addClass("alert-error").text(e + "");
+                $("#information").addClass("alert-error").text(e + "").show();
                 return;
             }
             for (i = 0; i < length; i += 1) {
@@ -62,7 +62,7 @@ $(document).ready(function () {
                 + (cookies.length === 1 ? '' : 's') + ".";
         }
         stringified_cookies = JSON.stringify(cookies.sort(cookieSort), null, ' ');
-        $("#information").addClass("alert-info").html(count_message);
+        $("#information").addClass("alert-success").text(count_message).show();
         $('#cookie').val(stringified_cookies);
     }
 });

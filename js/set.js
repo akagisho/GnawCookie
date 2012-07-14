@@ -19,12 +19,11 @@ $(document).ready(function () {
             $information;
         $information = $("#information");
 
-        $information.removeClass("alert-success alert-error").text('');
+        $information.removeClass("alert-success alert-error").text('').hide();
         try {
             cookies = JSON.parse($("#cookie").val());
         } catch(e) {
-            $information.addClass("alert-error")
-                .text(e + "");
+            $information.addClass("alert-error").text(e + "").show();
             return;
         }
 
@@ -41,23 +40,21 @@ $(document).ready(function () {
             try {
                 chrome.cookies.set(cookie, function (cookie) {
                     if (cookie === null) {
-                        throw "Cant't set cookie.";
+                        throw "Error: Cant't set cookie.";
                     }
                 });
             }
             catch (e) {
                 $information.addClass("alert-error").text(
-                    "Error occured while setting "
-                    + (i + 1) + "th cookie: "
-                    + e
-                );
+                    "[cookie " + (i + 1) + "] " + e
+                ).show();
                 return;
             }
         }
         $information.addClass("alert-success").text(
             "Finished setting " + length + " cookie"
             + (length === 1 ? "" : "s") + "."
-        );
+        ).show();
     });
 
 });

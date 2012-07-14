@@ -40,21 +40,24 @@
 
 <div class="container-fluid">
     <div class="row-fluid">
-<h2>Get Cookie</h2>
-<p>Input a regular expression that matches cookies' domain, then you can
-get JSON formated cookies.</p>
-<div id="get-cookie-box">
-<span class="input-append">
-<input type="text" class="span3" id="domain" placeholder="^\.google\.com$"><button class="btn" id="get">Get Cookie</button>
-</span><span class="alert" id="information"></span>
-</div>
-<div id="error"></div>
+        <h2>Get Cookie</h2>
+        <p>Input a regular expression that matches cookies' domain,
+        then you can get JSON formated cookies.</p>
+    </div>
 
+    <div class="row-fluid">
+        <div class="form-inline span6" id="input-box">
+            <input class="input-large" type="text"
+                id="domain" placeholder="^\.google\.com$">
+            <button class="btn" id="get">Get Cookie</button>
+        </div>
+        <div class="alert span6" id="information" style="display: none;">
+        </div>
+    </div>
 
-    <div id="result"></div>
-    <textarea class="span12" rows="20" id="cookie" wrap="off"></textarea>
-
-</div>
+    <div class="row-fluid">
+        <textarea class="span12" rows="20" id="cookie" wrap="off"></textarea>
+    </div>
 </div>
 </body>
 </html>

@@ -23,7 +23,7 @@ $(document).ready(function () {
 
     function clearAndGetCookie() {
         $("#table").text('');
-        $("#information").removeClass("alert-error alert-info").text("");
+        $("#information").removeClass("alert-error alert-success").text("").hide();
         $("#cookie").remove();
         getCookie($domain.val());
     }
@@ -35,7 +35,7 @@ $(document).ready(function () {
                 regexp = new RegExp(domain);
             }
             catch (e) {
-                $("#information").addClass("alert-error").text(e + "");
+                $("#information").addClass("alert-error").text(e + "").show();
                 return;
             }
 
@@ -78,16 +78,16 @@ $(document).ready(function () {
         cookies.sort(cookieSort);
 
         if (length > 1000) {
-            $("#information").addClass("alert-info").html(
+            $("#information").addClass("alert-success").text(
                 "You've got " + length + " cookies, but display only 1000 cookies bellow."
-            );
+            ).show();
             length = 1000;
         }
         else {
-            $("#information").addClass("alert-info").html(
+            $("#information").addClass("alert-success").text(
                 "You've got " + length + " cookie"
                     + (cookies.length === 1 ? '' : 's') + "."
-            );
+            ).show();
         }
         for (i = 0; i < length; i += 1) {
             table.append(tr(i));
@@ -148,6 +148,7 @@ $(document).ready(function () {
         function edit(i) {
             return function () {
                 var cookie = cookies[i];
+
                 chrome.cookies.set({
                     url: "http" + (cookie.secure ? 's' : '') + '://'
                         + cookie.domain + cookie.path,
@@ -160,16 +161,12 @@ $(document).ready(function () {
                     expirationDate: cookie.expirationDate,
                     storeId: cookie.storeId
                 });
-
-                //$('#notice').html('<div class="alert alert-success">Succeeded!</div>');
-                //$('#notice div').fadeOut(3000);
-                $('<div class="alert alert-success">Saved the change.</div>')
+                $('<div class="alert alert-success">Saved the value.</div>')
                     .css('position', 'fixed')
                     .css('right', 0)
                     .css('left', 0)
                     .css('text-align', 'center')
                     .css('top', 0)
-                    .css('margin', 0)
                     .css('padding', '50px 0 10px 0')
                     .css('z-index', 100)
                     .appendTo('body')
