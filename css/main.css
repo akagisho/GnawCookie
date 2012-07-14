@@ -1,4 +1,9 @@
-input,
+#get-cookie-box
+{
+    margin: 10px 0;
+}
+
+input[type=text],
 textarea,
 td
 {
@@ -13,7 +18,7 @@ td
 }
 
 .table thead th,
-td.delete,
+.table td.delete,
 .table td.hostOnly,
 .table td.httpOnly,
 .table td.session,
@@ -21,6 +26,12 @@ td.delete,
 .table td.storeId
 {
     text-align: center;
+}
+input[type=text].input-value
+{
+    width: 80%;
+    box-sizing: border-box;
+    height: 28px;
 }
 
 .table .input-append

@@ -40,22 +40,3 @@ function cookieSort(cookie1, cookie2) {
         return 0;
     }
 }
-
-function indent(data) {
-    data = data.replaceAll('{"', '{' + "\n\t\t" + '"');
-    data = data.replaceAll('},{', "\n\t" + '},' + "\n\t" + '{');
-    data = data.replaceAll(',"', ',' + "\n\t\t" + '"');
-    data = data.replace(/:/g, ': ');
-    data = data.replace(/^\[{/, '[' + "\n\t" + '{');
-    data = data.replace(/}\]$/, "\n\t" + '}' + "\n" + ']');
-
-    return data;
-}
-
-String.prototype.replaceAll = function(str1,str2){
-    var temp = this;
-    while (temp.indexOf(str1) != -1) {
-        temp=temp.replace(str1,str2);
-    }
-    return temp;
-};
