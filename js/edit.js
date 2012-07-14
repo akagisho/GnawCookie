@@ -135,6 +135,9 @@ function getCookie(domain) {
                     expirationDate: cookie.expirationDate,
                     storeId: cookie.storeId
                 });
+
+				$('#notice').html('<div class="alert alert-success">Succeeded!</div>');
+				$('#notice div').fadeOut(3000);
             };
         };
     });
