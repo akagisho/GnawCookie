@@ -40,7 +40,7 @@ $(document).ready(function () {
             try {
                 chrome.cookies.set(cookie, function (cookie) {
                     if (cookie === null) {
-                        throw "Error: Cant't set cookie.";
+                        throw "Error: Cannot set cookie.";
                     }
                 });
             }

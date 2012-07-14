@@ -72,20 +72,20 @@ $(document).ready(function () {
         );
         length = cookies.length;
         if (length === 0) {
-            $("#table").text("No cookie!");
+            $("#table").text("No cookie matched.");
             return;
         }
         cookies.sort(cookieSort);
 
         if (length > 1000) {
             $("#information").addClass("alert-success").text(
-                "You've got " + length + " cookies, but display only 1000 cookies bellow."
+                "You have got " + length + " cookies, but display only 1000 cookies bellow."
             ).show();
             length = 1000;
         }
         else {
             $("#information").addClass("alert-success").text(
-                "You've got " + length + " cookie"
+                "You have got " + length + " cookie"
                     + (cookies.length === 1 ? '' : 's') + "."
             ).show();
         }

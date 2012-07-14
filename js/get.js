@@ -54,11 +54,11 @@ $(document).ready(function () {
             stringified_cookies;
 
         if (cookies.length === 0) {
-            $("#cookie").val('No cookie!');
+            $("#cookie").val('No cookie matched.');
             return;
         }
         else {
-            count_message = "You've got " + cookies.length + " cookie"
+            count_message = "You have got " + cookies.length + " cookie"
                 + (cookies.length === 1 ? '' : 's') + ".";
         }
         stringified_cookies = JSON.stringify(cookies.sort(cookieSort), null, ' ');
