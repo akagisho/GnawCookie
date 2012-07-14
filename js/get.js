@@ -31,7 +31,7 @@ $(document).ready(function () {
 
     function getCookie(domain) {
         chrome.cookies.getAll({}, function (cookies) {
-            var length, i, regexp, result = [], stringified;
+            var length, i, e, regexp, result = [], stringified;
             length = cookies.length;
             try {
                 regexp = new RegExp(domain);

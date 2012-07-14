@@ -14,26 +14,50 @@ $(document).ready(function () {
         var cookies,
             length,
             cookie,
-            i;
+            i,
+            e,
+            $information;
+        $information = $("#information");
 
-        $('#error').html('');
+        $information.removeClass("alert-success alert-error").text('');
         try {
             cookies = JSON.parse($("#cookie").val());
         } catch(e) {
-            $('#error').html('<div class="alert alert-error">' + e + '</div>');
+            $information.addClass("alert-error")
+                .text(e + "");
             return;
         }
 
         length  = cookies.length;
+        if (length === undefined || length === 0) {
+            return;
+        }
         for (i = 0; i < length; i += 1) {
             cookie = cookies[i];
             cookie.url = "http" + (cookie.secure ? 's' : '')
                 + '://' + cookie.domain + cookie.path;
             delete cookie.hostOnly;
             delete cookie.session;
-            chrome.cookies.set(cookie);
+            try {
+                chrome.cookies.set(cookie, function (cookie) {
+                    if (cookie === null) {
+                        throw "Cant't set cookie.";
+                    }
+                });
+            }
+            catch (e) {
+                $information.addClass("alert-error").text(
+                    "Error occured while setting "
+                    + (i + 1) + "th cookie: "
+                    + e
+                );
+                return;
+            }
         }
-        $("#result").html("Finished setting cookies.")
-            .show().fadeOut(5 * 1000);
+        $information.addClass("alert-success").text(
+            "Finished setting " + length + " cookie"
+            + (length === 1 ? "" : "s") + "."
+        );
     });
+
 });
