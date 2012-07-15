@@ -79,7 +79,7 @@ $(document).ready(function () {
 
         if (length > 1000) {
             $("#information").addClass("alert-success").text(
-                "You have got " + length + " cookies, but display only 1000 cookies bellow."
+                "You have got " + length + " cookies, but display only 1000 cookies."
             ).show();
             length = 1000;
         }
