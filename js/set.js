@@ -38,19 +38,16 @@ $(document).ready(function () {
             delete cookie.hostOnly;
             delete cookie.session;
             try {
-                chrome.cookies.set(cookie, function (cookie) {
-                    if (cookie === null) {
-                        throw "Error: Cannot set cookie.";
-                    }
-                });
+                chrome.cookies.set(cookie);
             }
             catch (e) {
                 $information.addClass("alert-error").text(
-                    "[cookie " + (i + 1) + "] " + e
+                    "[cookie #" + (i + 1) + "] " + e
                 ).show();
                 return;
             }
         }
+        console.log(chrome.extension.lastError);
         $information.addClass("alert-success").text(
             "Finished setting " + length + " cookie"
             + (length === 1 ? "" : "s") + "."
