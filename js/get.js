@@ -24,7 +24,7 @@ $(document).ready(function () {
     });
 
     function clearAndGetCookie(domain) {
-        $("#information").removeClass("alert-success alert-error").hide();
+        $("#information").removeClass("alert-success alert-error").text("").hide();
         $('#cookie').val("");
         getCookie(domain);
     }

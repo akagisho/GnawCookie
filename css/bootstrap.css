@@ -998,19 +998,21 @@ input[type="search"]:focus,
 input[type="tel"]:focus,
 input[type="color"]:focus,
 .uneditable-input:focus {
-  /*border-color: rgba(82, 168, 236, 0.8);*/
-  border-color: rgba(166, 116, 83, 0.8);
+  /* original
+  border-color: rgba(82, 168, 236, 0.8);
+  */
   outline: 0;
   outline: thin dotted \9;
   /* IE6-9 */
 
-  /*
+  /* original
   -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(82,168,236,.6);
-  -moz-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(82,168,236,.6);
+     -moz-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(82,168,236,.6);
+          box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(82,168,236,.6);
   */
-  /*
-  box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(82,168,236,.6);
-  */
+
+  /* modified for Gnaw Cookie */
+  border-color: rgba(166, 116, 83, 0.8);
   box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(166,116,83,.6);
 }
 input[type="radio"],
