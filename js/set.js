@@ -47,7 +47,6 @@ $(document).ready(function () {
                 return;
             }
         }
-        console.log(chrome.extension.lastError);
         $information.addClass("alert-success").text(
             "Finished setting " + length + " cookie"
             + (length === 1 ? "" : "s") + "."
