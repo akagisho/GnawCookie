@@ -3,7 +3,6 @@ $(document).ready(function () {
     var $domain = $("#domain");
 
     if (typeof vars['domain'] !== 'undefined') {
-        console.log(vars['domain']);
         $domain.val(vars['domain']);
         getCookie(vars['domain']);
     }
