@@ -1,4 +1,22 @@
 Gnaw Cookie
 ===========
 
-This is a Google Chrome extension that gets or sets cookies.
+Gnaw Cookie is a Google Chrome App that allows you to get or set cookies easily.
+
+Features
+--------
+* You can search cookies by a regular expression.
+* Exports cookies in JSON format, which may be used easily by various programing languages.
+
+Known bug
+---------
+* In Set Cookie page, it may happens that a notice states "Finished setting cookies" even though setting cookies fail.
+
+Authors
+-------
+* Sho Akagi
+* Shoichi Kaji
+
+License
+-------
+THIS SOFTWARE IS PROVIDED WITHOUT WARRANTY OF ANY KIND.
