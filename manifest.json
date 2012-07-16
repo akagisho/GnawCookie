@@ -5,7 +5,7 @@
         "48": "icon/icon_48.png",
         "128": "icon/icon_128.png"
     },
-    "version": "0.3.2",
+    "version": "1.0.0",
     "permissions": [
         "cookies",
         "tabs",
