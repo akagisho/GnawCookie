@@ -2,6 +2,8 @@ Gnaw Cookie
 ===========
 
 Gnaw Cookie is a Google Chrome App that allows you to get or set cookies easily.
+You can install Gnaw Cookie via
+[Chrome Web Store](https://chrome.google.com/webstore/detail/kjhpfgmflgeokjflbkhplnjoikaagedk).
 
 Features
 --------
