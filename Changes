@@ -1,2 +1,5 @@
+1.0.1   Tue July 17 2012
+        - removed console.log for debug
+
 1.0.0   Tue July 17 2012
         - first release version
